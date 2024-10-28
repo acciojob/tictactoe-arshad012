@@ -6,24 +6,20 @@ let player_two = '';
 let turn = true;
 let sign = true;
 
-const form = document.getElementById('form');
-form.addEventListener('submit', (e) => {
-	e.preventDefault();
-	let player_one = document.getElementById('player-1').value;
-	let player_two = document.getElementById('player-2').value;
+function showBoard() {
+	player_one = document.getElementById('player-1').value;
+	player_two = document.getElementById('player-2').value;
 	
-	// document.getElementById('player-1').value = '';
-	// document.getElementById('player-2').value = '';
-	// console.log(player_one);
-	// console.log(player_two);
+	document.getElementById('player-1').value = '';
+	document.getElementById('player-2').value = '';
 	
-	
+	const message = document.querySelector('.message');
 	message.innerText = `${turn ? player_one : player_two}, you are' up`;
 	
 	document.getElementById('board').style.display = 'block';
 
 	value();
-});
+}
 
 let grid = [
 	[null,null,null],
@@ -31,7 +27,8 @@ let grid = [
 	[null,null,null]
 ];
 
-let events_applies = false;
+let click_events_applied = false;
+
 function value() {
     const allBoxes = document.querySelectorAll('#grid > div');
 	let boxIndex = 0;
@@ -45,11 +42,14 @@ function value() {
 
 	message.innerText = `${turn ? player_one : player_two}, you are' up`;
 
-	if(!events_applies) {
-		events_applies = true;
+	check_winner();
+
+	if(!click_events_applied) {
+		click_events_applied = true;
 		apply_click_event();
 	}
 }
+
 
 function apply_click_event() {
 	const allBoxes = document.querySelectorAll('#grid > div');
@@ -132,6 +132,57 @@ function apply_click_event() {
         })
     })
 }
+
+
+function check_winner() {
+	// checking horizontally
+	if(grid[0][0]) {
+		if(grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+	else if(grid[1][0]) {
+		if(grid[1][0] == grid[1][1] && grid[1][0] == grid[1][2]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+	else if(grid[2][0]) {
+		if(grid[2][0] == grid[2][1] && grid[2][0] == grid[2][2]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+		// checking vertically
+	else if(grid[0][0]) {
+		if(grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+	else if(grid[0][1]) {
+		if(grid[0][1] == grid[1][1] && grid[0][1] == grid[2][1]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+	else if(grid[0][2]) {
+		if(grid[0][2] == grid[1][2] && grid[0][2] == grid[2][2]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+		// checking diagonally
+	else if(grid[0][0]) {
+		if(grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+	else if(grid[0][2]) {
+		if(grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0]) {
+			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+		}
+	}
+}
+
+
+
+
 
 
 
