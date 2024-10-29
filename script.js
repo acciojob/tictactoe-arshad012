@@ -1,4 +1,5 @@
 //your JS code here. If required.
+
 const message = document.querySelector('.message');
 let player_one = '';
 let player_two = '';
@@ -15,7 +16,8 @@ function showBoard() {
 	// document.getElementById('player-2').value = '';
 	
 	const message = document.querySelector('.message');
-	message.innerText = `${turn ? player_one : player_two}, you are' up`;
+	// const str = ;
+	message.innerText = `${turn ? player_one : player_two},` + "you" + "\\" + "'re up";
 	
 	document.getElementById('board').style.display = 'block';
 
@@ -41,7 +43,8 @@ function value() {
 		}
     }
 
-	message.innerText = `${turn ? player_one : player_two}, you are' up`;
+	// message.innerText = `${turn ? player_one : player_two}, you are' up`;
+	message.innerText = `${turn ? player_one : player_two}, ` + "you" + "\\" + "'re up";
 
 	check_winner();
 
