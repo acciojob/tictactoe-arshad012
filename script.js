@@ -8,8 +8,8 @@ let sign = true;
 
 function showBoard() {
 	document.getElementById('inputDiv').style.display = 'none';
-	player_one = document.getElementById('player-1').value;
-	player_two = document.getElementById('player-2').value;
+	player_one = document.getElementById('player1').value;
+	player_two = document.getElementById('player2').value;
 	
 	// document.getElementById('player-1').value = '';
 	// document.getElementById('player-2').value = '';
