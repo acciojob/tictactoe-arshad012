@@ -1,5 +1,4 @@
 //your JS code here. If required.
-
 const message = document.querySelector('.message');
 let player_one = '';
 let player_two = '';
@@ -12,16 +11,11 @@ function showBoard() {
 	player_one = document.getElementById('player1').value;
 	player_two = document.getElementById('player2').value;
 	
-	// document.getElementById('player-1').value = '';
-	// document.getElementById('player-2').value = '';
-	
 	const message = document.querySelector('.message');
-	// const str = ;
-	// message.innerText = `${turn ? player_one : player_two},` + "you" + "\\" + "'re up";
 	// message.innerText = `Player1, ` + "you" + "\\" + "'re up";
+	message.innerText = `${turn ? player_one : player_two},` + "you" + "\\" + "'re up";
 	
 	document.getElementById('board').style.display = 'block';
-
 	value();
 }
 
@@ -44,17 +38,21 @@ function value() {
 		}
     }
 
+	const result = check_winner();
+	if(result[0]) {
+		message.innerText = `${!turn ? player_one : player_two}, congratulations you won!`;
+		
+	} else {
+		message.innerText = `${turn ? player_one : player_two}, ` + "you" + "\\" + "'re up";
+	}
 	// message.innerText = `Player1, ` + "you" + "\\" + "'re up";
-	// message.innerText = `${turn ? player_one : player_two}, ` + "you" + "\\" + "'re up";
 
-	check_winner();
 
 	if(!click_events_applied) {
 		click_events_applied = true;
 		apply_click_event();
 	}
 }
-
 
 function apply_click_event() {
 	const allBoxes = document.querySelectorAll('#grid > div');
@@ -140,54 +138,27 @@ function apply_click_event() {
 
 
 function check_winner() {
-	// checking horizontally
-	if(grid[0][0]) {
-		if(grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+	for(let i=0; i<grid.length; i++) {
+		if((grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2]) && grid[i][0]) {
+			return [true, [i,0],[i,1],[i,2]];
 		}
 	}
-	else if(grid[1][0]) {
-		if(grid[1][0] == grid[1][1] && grid[1][0] == grid[1][2]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
+
+	for(let i=0; i<grid.length; i++) {
+		if((grid[0][i] == grid[1][i] && grid[0][i] == grid[2][i]) && grid[0][i]) {
+			return [true, [0,i],[1,i],[2,i]];
 		}
 	}
-	else if(grid[2][0]) {
-		if(grid[2][0] == grid[2][1] && grid[2][0] == grid[2][2]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
-		}
+	
+	if(grid[0][0] && (grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2])) {
+		return [true, [0,0],[1,1],[2,2]];
 	}
-		// checking vertically
-	else if(grid[0][0]) {
-		if(grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
-		}
+
+	if(grid[0][2] && (grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0])) {
+		return [true, [0,2],[1,1],[2,0]];
 	}
-	else if(grid[0][1]) {
-		if(grid[0][1] == grid[1][1] && grid[0][1] == grid[2][1]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
-		}
-	}
-	else if(grid[0][2]) {
-		if(grid[0][2] == grid[1][2] && grid[0][2] == grid[2][2]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
-		}
-	}
-		// checking diagonally
-	else if(grid[0][0]) {
-		if(grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
-		}
-	}
-	else if(grid[0][2]) {
-		if(grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0]) {
-			message.innerText = `${turn ? player_one : player_two}, congratulations you won!`;
-		}
-	}
+
+	return [false];
 }
-
-
-
-
-
 
 
