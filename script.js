@@ -7,11 +7,12 @@ let turn = true;
 let sign = true;
 
 function showBoard() {
+	document.getElementById('inputDiv').style.display = 'none';
 	player_one = document.getElementById('player-1').value;
 	player_two = document.getElementById('player-2').value;
 	
-	document.getElementById('player-1').value = '';
-	document.getElementById('player-2').value = '';
+	// document.getElementById('player-1').value = '';
+	// document.getElementById('player-2').value = '';
 	
 	const message = document.querySelector('.message');
 	message.innerText = `${turn ? player_one : player_two}, you are' up`;

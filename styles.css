@@ -1,4 +1,7 @@
 /*  your css code here. If applicable */
+h1 {
+	text-align: center;
+}
 #inputDiv {
 	width:fit-content;
 	margin: auto;
