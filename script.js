@@ -17,7 +17,8 @@ function showBoard() {
 	
 	const message = document.querySelector('.message');
 	// const str = ;
-	message.innerText = `${turn ? player_one : player_two},` + "you" + "\\" + "'re up";
+	// message.innerText = `${turn ? player_one : player_two},` + "you" + "\\" + "'re up";
+	message.innerText = `Player1, ` + "you" + "\\" + "'re up";
 	
 	document.getElementById('board').style.display = 'block';
 
@@ -43,8 +44,8 @@ function value() {
 		}
     }
 
-	// message.innerText = `${turn ? player_one : player_two}, you are' up`;
-	message.innerText = `${turn ? player_one : player_two}, ` + "you" + "\\" + "'re up";
+	message.innerText = `Player1, ` + "you" + "\\" + "'re up";
+	// message.innerText = `${turn ? player_one : player_two}, ` + "you" + "\\" + "'re up";
 
 	check_winner();
 
