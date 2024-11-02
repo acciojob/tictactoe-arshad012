@@ -39,7 +39,8 @@ function value() {
 
 	const result = check_winner();
 	if(result[0]) {
-		message.innerText = `${!turn ? player_one : player_two}, congratulations you won!`;
+		// message.innerText = `${!turn ? player_one : player_two}, congratulations you won!`;
+		message.innerText = `${!turn ? 'Player1' : 'Player2'}, congratulations you won!`;
 		
 	} else {
 		message.innerText = `${turn ? player_one : player_two}, you're up`;
@@ -58,7 +59,7 @@ function apply_click_event() {
 			switch(i) {
 				case 0:
 					if(!grid[0][0]) {
-						grid[0][0] = sign ? 'X' : 'O';
+						grid[0][0] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -66,7 +67,7 @@ function apply_click_event() {
 					break;
 				case 1:
 					if(!grid[0][1]) {
-						grid[0][1] = sign ? 'X' : 'O';
+						grid[0][1] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -74,7 +75,7 @@ function apply_click_event() {
 					break;
 				case 2:
 					if(!grid[0][2]) {
-						grid[0][2] = sign ? 'X' : 'O';
+						grid[0][2] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -82,7 +83,7 @@ function apply_click_event() {
 					break;
 				case 3:
 					if(!grid[1][0]) {
-						grid[1][0] = sign ? 'X' : 'O';
+						grid[1][0] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -90,7 +91,7 @@ function apply_click_event() {
 					break;
 				case 4:
 					if(!grid[1][1]) {
-						grid[1][1] = sign ? 'X' : 'O';
+						grid[1][1] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -98,7 +99,7 @@ function apply_click_event() {
 					break;
 				case 5:
 					if(!grid[1][2]) {
-						grid[1][2] = sign ? 'X' : 'O';
+						grid[1][2] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -106,7 +107,7 @@ function apply_click_event() {
 					break;
 				case 6:
 					if(!grid[2][0]) {
-						grid[2][0] = sign ? 'X' : 'O';
+						grid[2][0] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -114,7 +115,7 @@ function apply_click_event() {
 					break;
 				case 7:
 					if(!grid[2][1]) {
-						grid[2][1] = sign ? 'X' : 'O';
+						grid[2][1] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
@@ -122,7 +123,7 @@ function apply_click_event() {
 					break;
 				case 8:
 					if(!grid[2][2]) {
-						grid[2][2] = sign ? 'X' : 'O';
+						grid[2][2] = sign ? 'x' : 'o';
 						sign = !sign;
 						turn = !turn;
 					}
