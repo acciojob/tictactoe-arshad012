@@ -39,8 +39,7 @@ function value() {
 
 	const result = check_winner();
 	if(result[0]) {
-		// message.innerText = `${!turn ? player_one : player_two}, congratulations you won!`;
-		message.innerText = `${!turn ? 'Player1' : 'Player2'}, congratulations you won!`;
+		message.innerText = `${!turn ? player_one : player_two}, congratulations you won!`;
 		
 	} else {
 		message.innerText = `${turn ? player_one : player_two}, you're up`;
