@@ -12,8 +12,7 @@ function showBoard() {
 	player_two = document.getElementById('player2').value;
 	
 	const message = document.querySelector('.message');
-	// message.innerText = `Player1, ` + "you" + "\\" + "'re up";
-	message.innerText = `${turn ? player_one : player_two},` + "you" + "\\" + "'re up";
+	message.innerText = `${turn ? player_one : player_two}, you're up`;
 	
 	document.getElementById('board').style.display = 'block';
 	value();
@@ -43,10 +42,8 @@ function value() {
 		message.innerText = `${!turn ? player_one : player_two}, congratulations you won!`;
 		
 	} else {
-		message.innerText = `${turn ? player_one : player_two}, ` + "you" + "\\" + "'re up";
+		message.innerText = `${turn ? player_one : player_two}, you're up`;
 	}
-	// message.innerText = `Player1, ` + "you" + "\\" + "'re up";
-
 
 	if(!click_events_applied) {
 		click_events_applied = true;
